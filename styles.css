@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.word-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.hexagon {
+    width: 60px;
+    height: 60px;
+    background-color: #4CAF50;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    font-size: 20px;
+    color: #fff;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hexagon:hover {
+    background-color: #45a049;
+}
+
+.letters-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.letters-container button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 18px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.letters-container button:hover {
+    background-color: #ddd;
+}
+.hexagon {
+    width: 50px;
+    height: 50px;
+    background-color: lightgray;
+    margin: 5px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.animated {
+    transform: scale(1.2); /* Animasyon efekti */
+    background-color: lightgreen; /* Animasyon sırasında renk değişimi */
+}
+
+button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.delete-button-container {
+    margin-top: 20px;
+    text-align: center;
+}
