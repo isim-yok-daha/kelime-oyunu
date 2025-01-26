@@ -1,4 +1,16 @@
-const words = ["araba", "araç", "akıl", "elma", "kedi"]; // Daha fazla kelime ekleyebilirsiniz
+const words = [
+    "araba", "araç", "akıl", "elma", "kedi", "kalem", "masa", "sandalye", "çatal", "kaşık", 
+    "bardak", "tabak", "kitap", "defter", "silgi", "klavye", "fare", "telefon", "ekran", "priz",
+    "kapı", "pencere", "perde", "lamba", "halı", "yastık", "battaniye", "yorgan", "şapka", "çanta",
+    "terlik", "ayakkabı", "bot", "mont", "pantolon", "gömlek", "kazak", "atkı", "bere", "eldiven",
+    "çorap", "koltuk", "sehpa", "televizyon", "buzdolabı", "fırın", "ocak", "tencere", "tava", "süzgeç",
+    "rende", "bıçak", "makas", "ağaç", "çiçek", "yaprak", "çim", "toprak", "deniz", "ırmak", "göl", "dağ",
+    "tepe", "yol", "köprü", "tren", "otobüs", "uçak", "gemi", "liman", "havalimanı", "istasyon", "park",
+    "bahçe", "kütüphane", "müze", "market", "mağaza", "eczane", "hastane", "okul", "üniversite", "sınıf",
+    "banka", "postane", "kargo", "restoran", "kafe", "pastane", "otopark", "otel", "plaj", "kamp", "orman",
+    "tatil", "seyahat", "şehir", "köy", "kasaba", "sahil", "kale", "tünel"
+  ];
+  
 let word = '';
 let guesses = [];
 let letters = [];
@@ -9,10 +21,7 @@ let wordsGuessed = 0; // Kaç kelime doğru tahmin edildi
 
 // Oyun başladığında kelime seçimi
 function startGame() {
-    if (wordsGuessed >= words.length) {
-        alert(`Tebrikler! Tüm kelimeleri doğru bildiniz.`);
-        return; // Bütün kelimeler bitti
-    }
+
     const randomIndex = Math.floor(Math.random() * words.length);
     word = words[randomIndex];
     guesses = new Array(word.length).fill(null); // Kareler boş
