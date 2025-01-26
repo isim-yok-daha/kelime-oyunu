@@ -1,13 +1,18 @@
-const words = ["araba", "araç", "akıl"];
+const words = ["araba", "araç", "akıl", "elma", "kedi"]; // Daha fazla kelime ekleyebilirsiniz
 let word = '';
 let guesses = [];
 let letters = [];
 let gameOver = false;
 let currentIndex = 0;  // İlk boş kutu indexi
 let letterUsage = {}; // Her harf için kullanım sayısı
+let wordsGuessed = 0; // Kaç kelime doğru tahmin edildi
 
 // Oyun başladığında kelime seçimi
 function startGame() {
+    if (wordsGuessed >= words.length) {
+        alert(`Tebrikler! Tüm kelimeleri doğru bildiniz.`);
+        return; // Bütün kelimeler bitti
+    }
     const randomIndex = Math.floor(Math.random() * words.length);
     word = words[randomIndex];
     guesses = new Array(word.length).fill(null); // Kareler boş
@@ -128,8 +133,14 @@ function animateLetterPlacement() {
 function checkWord() {
     const wordContainer = document.querySelector('.word-container');
     if (guesses.join('') === word) {
-        gameOver = true;
-        alert('Başarıyla tamamladınız!');
+        wordsGuessed++; // Kelime doğru, kelime sayısını artır
+        alert(`Tebrikler! Kelimeyi doğru bildiniz: ${word}`);
+
+        // Oyun devam etsin
+        setTimeout(() => {
+            resetGame(); // Kelimeyi bitir, yeni kelime seç
+            startGame(); // Yeni kelime ile devam et
+        }, 1000);
     } else {
         alert('Kelimeyi bulamadınız, tekrar deneyin!');
     }
@@ -160,4 +171,13 @@ function handleHexagonClick(index) {
     }
 }
 
+// Yeni kelime başlat
+function resetGame() {
+    guesses = [];
+    letters = [];
+    letterUsage = {};
+    currentIndex = 0;
+}
+
+// Oyunu başlat
 startGame();
